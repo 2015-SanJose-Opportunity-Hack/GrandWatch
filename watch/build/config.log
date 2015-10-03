@@ -1,0 +1,32 @@
+# project  configured on Sat Oct  3 16:49:25 2015 by
+# waf 1.7.11 (abi 98, python 2070af0 on darwin)
+# using /usr/local/Cellar/pebble-sdk/3.4/Pebble/waf configure
+#
+----------------------------------------
+Setting top to
+/Users/Chris/GrandWatch/watch
+----------------------------------------
+Setting out to
+/Users/Chris/GrandWatch/watch/build
+----------------------------------------
+Found Pebble SDK for basalt in:
+/usr/local/Cellar/pebble-sdk/3.4/Pebble/basalt
+----------------------------------------
+Checking for program gcc,cc
+arm-none-eabi-gcc
+find program=['gcc', 'cc'] paths='' var='CC' -> 'arm-none-eabi-gcc'
+----------------------------------------
+Checking for program ar
+arm-none-eabi-ar
+find program=['ar'] paths='' var='AR' -> 'arm-none-eabi-ar'
+----------------------------------------
+Found Pebble SDK for aplite in:
+/usr/local/Cellar/pebble-sdk/3.4/Pebble/aplite
+----------------------------------------
+Checking for program gcc,cc
+arm-none-eabi-gcc
+find program=['gcc', 'cc'] paths='' var='CC' -> 'arm-none-eabi-gcc'
+----------------------------------------
+Checking for program ar
+arm-none-eabi-ar
+find program=['ar'] paths='' var='AR' -> 'arm-none-eabi-ar'

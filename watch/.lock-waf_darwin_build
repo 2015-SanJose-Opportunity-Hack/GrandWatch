@@ -1,0 +1,8 @@
+argv = ['/usr/local/Cellar/pebble-sdk/3.4/Pebble/waf', 'configure']
+environ = {'TERM_SESSION_ID': 'F2D90D14-6FA6-44ED-B22D-33DD53159689', 'XPC_SERVICE_NAME': '0', 'PYTHONPATH': '/usr/local/Cellar/pebble-sdk/3.4/libexec/lib/python2.7/site-packages:/usr/local/Cellar/pebble-sdk/3.4/lib/python2.7/site-packages', 'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'TERM_PROGRAM_VERSION': '343.7', 'SSH_AUTH_SOCK': '/private/tmp/com.apple.launchd.kibIdxzry6/Listeners', 'SHELL': '/bin/bash', 'LOGNAME': 'Chris', 'USER': 'Chris', 'NO_GCE_CHECK': 'False', 'HOME': '/Users/Chris', 'PATH': '/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/pebble-sdk/3.4/arm-cs-tools/bin', 'TMPDIR': '/var/folders/59/gdz_2fpd57s3mf4mkr_y8mvr0000gn/T/', 'TERM_PROGRAM': 'Apple_Terminal', 'LANG': 'en_US.UTF-8', 'TERM': 'xterm-256color', 'Apple_PubSub_Socket_Render': '/private/tmp/com.apple.launchd.SB6kWSH2wL/Render', 'VERSIONER_PYTHON_VERSION': '2.7', 'SHLVL': '1', 'XPC_FLAGS': '0x0', '__CF_USER_TEXT_ENCODING': '0x1F5:0x0:0x0', 'PWD': '/Users/Chris/grandwatch/watch', '_': '/usr/local/bin/pebble'}
+files = ['/Users/Chris/GrandWatch/watch/wscript']
+hash = 9131527338650916136
+options = {'files': '', 'jobs': 4, 'verbose': 0, 'nocache': False, 'progress_bar': 0, 'timestamp': None, 'distcheck_args': None, 'top': '', 'destdir': '', 'keep': 0, 'zones': '', 'debug': False, 'prefix': '/usr/local/', 'download': False, 'force': False, 'targets': '', 'out': ''}
+out_dir = '/Users/Chris/GrandWatch/watch/build'
+run_dir = '/Users/Chris/GrandWatch/watch'
+top_dir = '/Users/Chris/GrandWatch/watch'
