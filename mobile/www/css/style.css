@@ -1,1 +1,23 @@
-/* Empty. Add your own CSS if you like */
+.scroll-content {
+	background-image: url("../img/bg2.jpg");
+	background-size: cover;
+}
+
+.head {
+	padding-top: 20%;
+	padding-bottom: 20%;
+	background-image: url("../img/bg.jpg");
+	background-size: cover;
+}
+
+.item-image img {
+	border-radius: 5px;
+}
+
+.active {
+	text-align: center;
+}
+
+.feed {
+	opacity: 0.9;
+}
