@@ -16,7 +16,7 @@ angular.module('grandwatch', ['ionic'])
   });
 })
 
-.controller('FeedCtrl', ['$scope', 'feed', function($scope, $interval) {
+.controller('FeedCtrl', ['$scope', 'feed', function($scope) {
 
   var EventType = {
     BREAKFAST: 0,
@@ -35,8 +35,6 @@ angular.module('grandwatch', ['ionic'])
   NetworkingOperations.prototype.sendMessage = function (){
     //todo send data
   }
-
-  feed();
 
   NetworkingOperations.prototype.getMessage = function (person, eventCount){
     var url = 'http://personatestuser.org/email';
@@ -125,11 +123,6 @@ angular.module('grandwatch', ['ionic'])
 
   $interval(function() {
     var url = 'http://echo.jsontest.com/one/two';
-    // $.getJSON(url, function(data) {
-    //   console.log(data.one);
-    //   count++;
-    //   $("#feed").prepend('<div class="item item-avatar"><img src="./img/cat.jpg"><h2>Grandpa</h2><p>is having breakfast</p><span class="badge badge-balanced">' + count + ' min ago</span></div>');
-    // })
 
     $http({
       method: 'GET',
@@ -140,4 +133,6 @@ angular.module('grandwatch', ['ionic'])
       angular.element(document.getElementById('feed')).prepend('<div class="item item-avatar"><img src="./img/cat.jpg"><h2>Grandpa</h2><p>is having breakfast</p><span class="badge badge-balanced">' + count + ' min ago</span></div>');
     });
   }, 500);
+
+  return null;
 }]);
