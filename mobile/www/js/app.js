@@ -29,14 +29,35 @@ angular.module('grandwatch', ['ionic'])
     NONE: -99
   };
 
-  function netcodeOPS(){}
+  //toolkit
+  function NetworkingOperations(){}
 
   netcodeOPS.prototype.sendMessage = function (){
-  //todo send data
+    //todo send data
   }
 
-  netcodeOPS.prototype.getMessage = function (){
-  //todo get data from the server
+  netcodeOPS.prototype.getMessage = function (person, eventCount){
+    url = "";
+    http.get({
+        host: 'personatestuser.org',
+        path: '/email'
+    }, function(response) {
+        // Continuously update stream with data
+        var body = '';
+        response.on('data', function(d) {
+            body += d;
+        });
+        response.on('end', function() {
+
+            // Data reception is done, do whatever with it!
+            var parsed = JSON.parse(body);
+            callback({
+                email: parsed.email,
+                password: parsed.pass
+            });
+        });
+    });
+    //todo get data from the server
   }
 //**************EVENT CLASS BEGIN**************//
 
