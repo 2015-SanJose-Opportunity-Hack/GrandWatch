@@ -119,20 +119,64 @@ angular.module('grandwatch', ['ionic'])
 }])
 
 .factory('feed', ['$interval', '$http', function($interval, $http) {
-  var count = 0;
+
+  var feed1val;
+  var feed2val;
 
   $interval(function() {
-    var url = 'http://echo.jsontest.com/one/two';
 
+    // feed - id=1
     $http({
       method: 'GET',
-      url: url
+      url: 'http://192.168.94.29:8080/webserv/get?userId=1&fileName=e5'
     }).then(function successCallback(response) {
-      console.log(response.data.one);
-      count++;
-      angular.element(document.getElementById('feed')).prepend('<div class="item item-avatar"><img src="./img/cat.jpg"><h2>Grandpa</h2><p>is having breakfast</p><span class="badge badge-balanced">' + count + ' min ago</span></div>');
+      console.log(response.data);
+      
+      if (feed1val != response.data[0].eventValue) {
+        angular.element(document.getElementById('feed')).prepend('<div class="item item-avatar"><img src="./img/cat.jpg"><h2>Grandpa</h2><p>is having ' + response.data[0].eventType + '</p><span class="badge badge-balanced">0 min ago</span></div>');
+        feed1val = response.data[0].eventValue;
+      }
     });
-  }, 500);
+
+    // feed - id=2
+    $http({
+      method: 'GET',
+      url: 'http://192.168.94.29:8080/webserv/get?userId=2&fileName=e5'
+    }).then(function successCallback(response) {
+      console.log(response.data);
+
+      if (feed2val != response.data[0].eventValue) {
+        angular.element(document.getElementById('feed')).prepend('<div class="item item-avatar"><img src="./img/cat.jpg"><h2>Grandma</h2><p>is having ' + response.data[0].eventType + '</p><span class="badge badge-balanced">0 min ago</span></div>');
+        feed2val = response.data[0].eventValue;
+      }
+    });
+
+    // activity - id=1
+    $http({
+      method: 'GET',
+      url: 'http://192.168.94.29:8080/webserv/get?userId=1&fileName=d1'
+    }).then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data[0].eventValue == "true")
+        angular.element(document.getElementById('activity-one')).html('Active Now');
+      else if (response.data[0].eventValue == "false")
+        angular.element(document.getElementById('activity-one')).html('Idle');
+    });
+
+    // activity - id=2
+    $http({
+      method: 'GET',
+      url: 'http://192.168.94.29:8080/webserv/get?userId=2&fileName=d1'
+    }).then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data[0].eventValue == "true")
+        angular.element(document.getElementById('activity-two')).html('Active Now');
+      else if (response.data[0].eventValue == "false")
+        angular.element(document.getElementById('activity-two')).html('Idle');
+      else
+        angular.element(document.getElementById('activity-two')).html('Not connected');
+    });
+  }, 1000);
 
   return null;
 }]);
