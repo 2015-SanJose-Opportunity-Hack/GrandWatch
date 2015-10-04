@@ -16,7 +16,7 @@ angular.module('grandwatch', ['ionic'])
   });
 })
 
-.controller('FeedCtrl', function($scope) {
+.controller('FeedCtrl', ['$scope', 'feed', function($scope, $interval) {
 
   var EventType = {
     BREAKFAST: 0,
@@ -32,31 +32,18 @@ angular.module('grandwatch', ['ionic'])
   //toolkit
   function NetworkingOperations(){}
 
-  netcodeOPS.prototype.sendMessage = function (){
+  NetworkingOperations.prototype.sendMessage = function (){
     //todo send data
   }
 
-  netcodeOPS.prototype.getMessage = function (person, eventCount){
-    url = "";
-    http.get({
-        host: 'personatestuser.org',
-        path: '/email'
-    }, function(response) {
-        // Continuously update stream with data
-        var body = '';
-        response.on('data', function(d) {
-            body += d;
-        });
-        response.on('end', function() {
+  feed();
 
-            // Data reception is done, do whatever with it!
-            var parsed = JSON.parse(body);
-            callback({
-                email: parsed.email,
-                password: parsed.pass
-            });
-        });
-    });
+  NetworkingOperations.prototype.getMessage = function (person, eventCount){
+    var url = 'http://personatestuser.org/email';
+    $.getJSON(url, function(data) {
+      console.log(data);
+    })
+
     //todo get data from the server
   }
 //**************EVENT CLASS BEGIN**************//
@@ -131,4 +118,26 @@ angular.module('grandwatch', ['ionic'])
   };
 //**************PERSON CLASS END**************//
    
-});
+}])
+
+.factory('feed', ['$interval', '$http', function($interval, $http) {
+  var count = 0;
+
+  $interval(function() {
+    var url = 'http://echo.jsontest.com/one/two';
+    // $.getJSON(url, function(data) {
+    //   console.log(data.one);
+    //   count++;
+    //   $("#feed").prepend('<div class="item item-avatar"><img src="./img/cat.jpg"><h2>Grandpa</h2><p>is having breakfast</p><span class="badge badge-balanced">' + count + ' min ago</span></div>');
+    // })
+
+    $http({
+      method: 'GET',
+      url: url
+    }).then(function successCallback(response) {
+      console.log(response.data.one);
+      count++;
+      angular.element(document.getElementById('feed')).prepend('<div class="item item-avatar"><img src="./img/cat.jpg"><h2>Grandpa</h2><p>is having breakfast</p><span class="badge badge-balanced">' + count + ' min ago</span></div>');
+    });
+  }, 500);
+}]);
