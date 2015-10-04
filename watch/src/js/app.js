@@ -7,6 +7,7 @@
 var UI = require('ui');
 var Vector2 = require('vector2');
 var ajax = require('ajax');
+var Accel = require('ui/accel');
 
 // var main = new UI.Card({
 //   title: 'GrandWatch',
@@ -117,6 +118,12 @@ function displayMenu(id, name) {
     }]
   });
   selectMenu.show();
+
+  Accel.init();
+
+  Accel.on('data', function(e) {
+    console.log(e.accel.x + ' ' + e.accel.y + ' ' + Math.sqrt(Math.pow(e.accel.x,2) + Math.pow(e.accel.y,2)));
+  });
 
   // selectMenu.on('select', function(event) {
   //   ajax({ url: '', type: 'json'},
