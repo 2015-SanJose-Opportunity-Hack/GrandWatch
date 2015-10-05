@@ -133,7 +133,7 @@ angular.module('grandwatch', ['ionic'])
     // feed - id=1
     $http({
       method: 'GET',
-      url: 'http://192.168.94.29:8080/webserv/get?userId=1&fileName=e5'
+      url: 'http://45.33.109.130:8080/webserv/get?userId=1&fileName=e5'
     }).then(function successCallback(response) {
       //console.log(response.data);
       
@@ -146,7 +146,7 @@ angular.module('grandwatch', ['ionic'])
     // feed - id=2
     $http({
       method: 'GET',
-      url: 'http://192.168.94.29:8080/webserv/get?userId=2&fileName=e5'
+      url: 'http://45.33.109.130:8080/webserv/get?userId=2&fileName=e5'
     }).then(function successCallback(response) {
       //console.log(response.data);
 
@@ -159,7 +159,7 @@ angular.module('grandwatch', ['ionic'])
     // activity - id=1
     $http({
       method: 'GET',
-      url: 'http://192.168.94.29:8080/webserv/get?userId=1&fileName=d1'
+      url: 'http://45.33.109.130:8080/webserv/get?userId=1&fileName=d1'
     }).then(function successCallback(response) {
       //console.log(response.data);
       if (response.data[0].eventValue == "true")
@@ -171,7 +171,7 @@ angular.module('grandwatch', ['ionic'])
     // activity - id=2
     $http({
       method: 'GET',
-      url: 'http://192.168.94.29:8080/webserv/get?userId=2&fileName=d1'
+      url: 'http://45.33.109.130:8080/webserv/get?userId=2&fileName=d1'
     }).then(function successCallback(response) {
       //console.log(response.data);
       if (response.data[0].eventValue == "true")

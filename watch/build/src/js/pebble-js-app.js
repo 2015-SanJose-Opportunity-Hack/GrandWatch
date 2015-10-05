@@ -237,12 +237,12 @@ function displayMenu(id, name) {
     console.log(e.accel.x + ' ' + e.accel.y + ' ' + magnitude);
 
     if (magnitude >= 500) {
-      ajax({ url: 'http://192.168.94.29:8080/webserv/set?userId=' + id + '&eventType=Walking&eventValue=true&fileName=d1', type: 'json'},
+      ajax({ url: 'http://45.33.109.130:8080/webserv/set?userId=' + id + '&eventType=Walking&eventValue=true&fileName=d1', type: 'json'},
       function(data) {
         console.log("walking");
       })
     } else if (magnitude < 500) {
-      ajax({ url: 'http://192.168.94.29:8080/webserv/set?userId=' + id + '&eventType=Walking&eventValue=false&fileName=d1', type: 'json'},
+      ajax({ url: 'http://45.33.109.130:8080/webserv/set?userId=' + id + '&eventType=Walking&eventValue=false&fileName=d1', type: 'json'},
       function(data) {
         console.log("idle");
       })
@@ -252,7 +252,7 @@ function displayMenu(id, name) {
   var count = 0;
 
   selectMenu.on('select', function(event) {
-    ajax({ url: 'http://192.168.94.29:8080/webserv/set?userId=' + id + '&eventType=' + selections[event.itemIndex].title + '&eventValue=' + count++ + '&fileName=e5', type: 'json'},
+    ajax({ url: 'http://45.33.109.130:8080/webserv/set?userId=' + id + '&eventType=' + selections[event.itemIndex].title + '&eventValue=' + count++ + '&fileName=e5', type: 'json'},
       function(data) {
         console.log(selections[event.itemIndex].title + ' clicked');
       }
@@ -9698,11 +9698,11 @@ module.exports = new Wakeup();
 __loader.define("appinfo.json", 9698, function(exports, module, require) {
 module.exports = {
   "uuid": "133215f0-cf20-4c05-997b-3c9be5a64e5b",
-  "shortName": "Pebble.js",
-  "longName": "Pebble.js",
-  "companyName": "Meiguro",
+  "shortName": "GrandWatch",
+  "longName": "GrandWatch",
+  "companyName": "Team VI",
   "versionCode": 1,
-  "versionLabel": "0.4",
+  "versionLabel": "1.0",
   "capabilities": [
     "configurable"
   ],
